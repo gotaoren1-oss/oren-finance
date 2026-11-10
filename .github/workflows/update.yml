@@ -1,1 +1,34 @@
-update.yml
+name: Update Oren Finance Data
+
+on:
+  schedule:
+    - cron: '30 8,20 * * *' # Runs twice a day
+  workflow_dispatch:
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: **actions/setup-node@v4**
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install node-fetch@2 @google/genai
+
+      - name: Run fetch script
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node fetch.mjs
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data.json
+          git commit -m "Auto-update Oren Finance data [skip ci]" || exit 0
+          git push
