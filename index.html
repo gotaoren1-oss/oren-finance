@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oren Finance | פאנל בקרה למשקיע</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&display=swap');
+
+body {
+  font-family: 'Heebo', sans-serif;
+  background-color: #06070b;
+  color: #e2e8f0;
+}
+
+.glass-panel {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fib-level {
+  position: relative;
+  border-bottom: 1px dashed rgba(255,255,255,0.2);
+}
+</style>
+</head>
+<body class="p-4 md:p-8 min-h-screen">
+
+<!-- Message Box -->
+<div id="messageBox" class="fixed top-4 right-4 bg-emerald-600 text-white px-4 py-2 rounded-lg shadow-xl transition-opacity duration-300 opacity-0 z-50">
+הקישור הועתק בהצלחה!
+</div>
+
+<!-- Header -->
+<header class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center mb-8 border-b border-slate-700/80 pb-6 gap-4">
+<div>
+  <div class="flex items-center gap-3">
+    <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tight text-white">Oren Finance <i class="fas fa-chart-line text-cyan-400 ml-2"></i></h1>
+    <span class="bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs px-3 py-1 rounded-full font-bold">Command Center</span>
+  </div>
+  <p class="text-slate-400 mt-1 text-base">פאנל בקרה אישי ואסטרטגיה למסחר מקצועי</p>
+</div>
+<div class="flex items-center space-x-6 space-x-reverse">
+  <!-- NY Clock & Market Status -->
+  <div class="bg-slate-800/80 border border-slate-700 px-4 py-2 rounded-xl text-xs flex items-center gap-3">
+    <span class="market-status-dot closed" id="market-dot" style="width: 8px; height: 8px; border-radius: 50%; display: inline-block;"></span>
+    <div>
+      <div id="market-phase" class="text-slate-300 font-bold">טוען שעון...</div>
+      <div id="ny-time" class="text-cyan-400 font-mono font-bold">--:--:-- EST</div>
+    </div>
+  </div>
+  <button id="shareButton" class="p-3 rounded-full text-slate-300 hover:bg-slate-700 transition-colors" title="העתק קישור לשיתוף">
+    <i class="fas fa-share-alt text-lg"></i>
+  </button>
+  <div class="text-left hidden md:block">
+    <div class="text-xl font-bold gradient-text">אורן גוטע</div>
+    <div class="text-xs text-slate-500 font-mono" id="last-update">מעדכן נתונים...</div>
+  </div>
+</div>
+</header>
+
+<!-- Main Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-7xl mx-auto">
+
+<!-- Macro & Fear/Greed Banner -->
+<div class="lg:col-span-12">
+<div class="glass-panel rounded-2xl p-6 border border-purple-500/30 bg-gradient-to-r from-purple-900/10 to-cyan-900/10">
+<div class="flex justify-between items-center mb-4">
+  <h2 class="text-xl font-bold flex items-center text-white"><i class="fas fa-globe-americas text-cyan-400 ml-2"></i> מצב השוק והמאקרו (Live AI Synthesis)</h2>
+  <span class="text-xs text-slate-400 font-mono" id="market-state">טוען מצב שוק...</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+  <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700">
+    <div class="text-xs text-slate-400 uppercase">מדד פחד וחמד (CNN)</div>
+    <div class="text-xl font-black text-amber-400 mt-2" id="fng-val">--</div>
+  </div>
+  <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700">
+    <div class="text-xs text-slate-400 uppercase">דוח אינפלציה / CPI</div>
+    <div class="text-sm font-bold text-white mt-2" id="cpi-val">מתעדכן...</div>
+  </div>
+  <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700">
+    <div class="text-xs text-slate-400 uppercase">ציון סיכון מערכתי</div>
+    <div class="text-xl font-black text-rose-400 mt-2" id="risk-val">-- / 10</div>
+  </div>
+  <div class="bg-slate-800/80 rounded-xl p-4 border border-slate-700">
+    <div class="text-xs text-slate-400 uppercase">ניתוח יומי אישי</div>
+    <div class="text-xs text-slate-200 mt-2 leading-relaxed" id="daily-verdict">מנתח נתונים...</div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- Assets & Smart Traffic Lights with Explanation -->
+<div class="lg:col-span-12">
+<div class="glass-panel rounded-2xl p-6">
+<h2 class="text-xl font-bold mb-4 text-emerald-400"><i class="fas fa-traffic-light ml-2"></i> רמזורי נכסים חכמים (עם הסבר מנומק לכל חיווי)</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="assets-container">
+  <div class="text-slate-400 text-center py-8 col-span-3">טוען ניתוח נכסים חי...</div>
+</div>
+</div>
+</div>
+
+<!-- Investment Avenues -->
+<div class="lg:col-span-12">
+<div class="glass-panel rounded-2xl p-6">
+<h2 class="text-xl font-bold mb-4 flex items-center"><i class="fas fa-layer-group text-emerald-400 ml-2"></i> השוואת ביצועים וסקטורים מובילים</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="bg-slate-800 rounded-xl p-4 border-t-4 border-purple-500">
+<h3 class="font-bold text-2xl">QQQ</h3><p class="text-xs text-slate-400">נאסד"ק 100</p>
+<div class="mt-4"><div class="text-3xl font-black text-emerald-400">+35.0%</div></div>
+</div>
+<div class="bg-slate-800 rounded-xl p-4 border-t-4 border-blue-500">
+<h3 class="font-bold text-2xl">VOO</h3><p class="text-xs text-slate-400">S&P 500</p>
+<div class="mt-4"><div class="text-3xl font-black text-blue-400">+28.0%</div></div>
+</div>
+<div class="bg-slate-800 rounded-xl p-4 border-t-4 border-cyan-500">
+<h3 class="font-bold text-2xl">VTI</h3><p class="text-xs text-slate-400">כלל השוק</p>
+<div class="mt-4"><div class="text-3xl font-black text-cyan-400">+27.0%</div></div>
+</div>
+<div class="bg-slate-800 rounded-xl p-4 border-t-4 border-slate-400">
+<h3 class="font-bold text-2xl">VMFXX</h3><p class="text-xs text-slate-400">קרן כספית</p>
+<div class="mt-4"><div class="text-3xl font-black text-slate-300">+4.8%</div></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Left Column: Technical & Fundamentals -->
+<div class="lg:col-span-7 space-y-6">
+<div class="glass-panel rounded-2xl p-6">
+<h2 class="text-xl font-bold mb-4 text-amber-400"><i class="fas fa-shield-alt ml-2"></i> בסיס (Fundamental)</h2>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-slate-800/50 p-4 rounded-lg flex items-center">
+<div class="bg-amber-500/20 p-3 rounded-full ml-3"><i class="fas fa-building text-amber-400 text-xl"></i></div>
+<div><div class="text-xs text-slate-400">שווי שוק מינימלי</div><div class="font-bold text-lg">> $1 Billion</div></div>
+</div>
+<div class="bg-slate-800/50 p-4 rounded-lg flex items-center">
+<div class="bg-amber-500/20 p-3 rounded-full ml-3"><i class="fas fa-file-invoice-dollar text-amber-400 text-xl"></i></div>
+<div><div class="text-xs text-slate-400">דוח כספי</div><div class="font-bold text-lg">צמיחה + רווח</div></div>
+</div>
+</div>
+</div>
+
+<div class="glass-panel rounded-2xl p-6">
+<h2 class="text-xl font-bold mb-4 text-sky-400"><i class="fas fa-crosshairs ml-2"></i> תזמון טכני (Technical)</h2>
+<div class="space-y-3">
+<div class="flex items-center justify-between bg-slate-800/50 p-3 rounded-lg border-r-4 border-green-500">
+<span class="font-bold text-white">EMA 150</span>
+<span class="text-sm bg-green-500/10 text-green-400 px-2 py-1 rounded font-bold">מחיר מעל הממוצע</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<div class="bg-slate-800/50 p-3 rounded-lg border-r-4 border-blue-500 flex justify-between items-center"><span class="font-bold text-white">גרף שבועי</span><span class="text-xs text-slate-400">מגמה ראשית</span></div>
+<div class="bg-slate-800/50 p-3 rounded-lg border-r-4 border-red-500 flex justify-between items-center"><span class="font-bold text-white">Stop Loss</span><span class="text-xs text-red-300">ATR x 2</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Right Column: Fibonacci & EMA -->
+<div class="lg:col-span-5 space-y-6">
+<div class="glass-panel rounded-2xl p-6 relative overflow-hidden flex flex-col">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 to-orange-500"></div>
+<h2 class="text-xl font-bold text-yellow-400 mb-4"><i class="fas fa-ruler-combined ml-2"></i> פיבונאצ'י (Fibonacci)</h2>
+<div class="relative h-48 bg-slate-800 rounded-lg p-4 flex flex-col justify-between border border-slate-700 mb-4">
+<div class="fib-level flex justify-between items-center text-slate-500 text-xs"><span>התחלה/סוף</span><span>0%</span></div>
+<div class="fib-level flex justify-between items-center text-yellow-200"><span class="bg-yellow-900/30 px-2 rounded">אזור היפוך</span><span class="font-bold font-mono text-yellow-400">50.0%</span></div>
+<div class="fib-level flex justify-between items-center text-orange-200"><span class="bg-orange-900/30 px-2 rounded">Golden Ratio</span><span class="font-black font-mono text-orange-400 text-lg">61.8%</span></div>
+<div class="flex justify-between items-center text-slate-500 text-xs mt-2"><span>סוף/התחלה</span><span>100%</span></div>
+</div>
+</div>
+</div>
+
+<!-- Dip Buying Rules -->
+<div class="lg:col-span-12">
+<div class="glass-panel rounded-2xl p-6 border-r-4 border-rose-500">
+<h2 class="text-2xl font-black mb-4 flex items-center text-white"><i class="fas fa-arrow-trend-down ml-3 text-rose-500"></i> כללים לקנייה בתיקוני שוק ("דיפים")</h2>
+<p class="text-xs text-slate-400">פחד קיצוני (חד ספרתי), VIX מעל 30, S5FI מתחת ל-20, או 3 ימים אדומים ברצף.</p>
+</div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<footer class="mt-8 text-center text-slate-600 text-sm max-w-7xl mx-auto pb-8">
+<p>© נוצר עבור אורן גוטע (GOTAKING) | Oren Finance Command Center</p>
+</footer>
+
+<script>
+// New York Time & Market Session
+function updateNYTime() {
+  const now = new Date();
+  const nyFormatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York',
+    hour: 'numeric', minute: 'numeric', second: 'numeric',
+    hour12: false, weekday: 'short', month: 'numeric', day: 'numeric', year: 'numeric'
+  });
+  const nyParts = nyFormatter.formatToParts(now);
+  let nyHour = 0, nyMinute = 0, nySecond = 0, weekday = '';
+  nyParts.forEach(p => {
+    if (p.type === 'hour') nyHour = parseInt(p.value);
+    if (p.type === 'minute') nyMinute = parseInt(p.value);
+    if (p.type === 'second') nySecond = parseInt(p.value);
+    if (p.type === 'weekday') weekday = p.value;
+  });
+
+  document.getElementById('ny-time').innerText = `${String(nyHour).padStart(2, '0')}:${String(nyMinute).padStart(2, '0')}:${String(nySecond).padStart(2, '0')} EST`;
+  
+  const dot = document.getElementById('market-dot');
+  const phase = document.getElementById('market-phase');
+  const totalMins = nyHour * 60 + nyMinute;
+  const isWeekend = (weekday === 'Sat' || weekday === 'Sun');
+
+  if (isWeekend) {
+    dot.className = 'market-status-dot closed'; dot.style.backgroundColor = '#ef4444';
+    phase.innerText = 'השוק סגור (סוף שבוע)';
+  } else if (totalMins >= 240 && totalMins < 570) {
+    dot.className = 'market-status-dot pre'; dot.style.backgroundColor = '#f59e0b';
+    phase.innerText = 'טרום מסחר (Pre-Market)';
+  } else if (totalMins >= 570 && totalMins < 960) {
+    dot.className = 'market-status-dot open'; dot.style.backgroundColor = '#10b981';
+    phase.innerText = 'שוק פתוח (Live)';
+  } else if (totalMins >= 960 && totalMins < 1200) {
+    dot.className = 'market-status-dot pre'; dot.style.backgroundColor = '#f59e0b';
+    phase.innerText = 'מסחר מאוחר (After-Hours)';
+  } else {
+    dot.className = 'market-status-dot closed'; dot.style.backgroundColor = '#ef4444';
+    phase.innerText = 'השוק סגור';
+  }
+}
+setInterval(updateNYTime, 1000);
+updateNYTime();
+
+// Load dynamic data from data.json with clear explanations (למה)
+async function loadData() {
+  try {
+    const res = await fetch('data.json?t=' + Date.now());
+    if (!res.ok) throw new Error('No data');
+    const data = await res.json();
+
+    document.getElementById('last-update').innerText = 'עודכן: ' + new Date(data.lastUpdated).toLocaleTimeString('he-IL');
+
+    if (data.macro) {
+      document.getElementById('market-state').innerText = data.macro.marketState;
+      document.getElementById('fng-val').innerText = `${data.macro.fearGreedValue} (${data.macro.fearGreedLabel})`;
+      document.getElementById('cpi-val').innerText = data.macro.cpiStatus;
+      document.getElementById('risk-val').innerText = `${data.macro.riskScore} / 10`;
+      document.getElementById('daily-verdict').innerText = data.macro.dailyVerdict;
+    }
+
+    const container = document.getElementById('assets-container');
+    if (data.assets && data.assets.length > 0) {
+      container.innerHTML = data.assets.map(asset => {
+        let badgeColor = 'bg-emerald-500/10 text-emerald-400 border-emerald-500';
+        let badgeText = 'קנייה מומלצת (🟢)';
+        if (asset.status === 'yellow') { badgeColor = 'bg-amber-500/10 text-amber-400 border-amber-500'; badgeText = 'מעקב בלבד (🟡)'; }
+        if (asset.status === 'red') { badgeColor = 'bg-rose-500/10 text-rose-400 border-rose-500'; badgeText = 'אין לגעת (🔴)'; }
+
+        return `
+          <div class="bg-slate-800/80 p-5 rounded-xl border border-slate-700 relative flex flex-col justify-between">
+            <div>
+              <span class="absolute top-4 left-4 text-[10px] font-bold px-2.5 py-1 rounded-full border ${badgeColor}">${badgeText}</span>
+              <div class="text-xl font-bold text-white mb-1">${asset.name} (${asset.symbol})</div>
+              <div class="text-xs text-slate-400 font-mono mb-3">ציון עוצמה: ${asset.score}/100</div>
+              
+              <!-- הסבר קצר למה -->
+              <div class="mb-3">
+                <div class="text-xs font-bold text-cyan-300 mb-1 flex items-center"><i class="fas fa-lightbulb ml-1"></i> למה קיבל את החיווי?</div>
+                <p class="text-xs text-slate-200 leading-relaxed bg-slate-900/60 p-2.5 rounded-lg border border-slate-700/60">${asset.reasoning}</p>
+              </div>
+            </div>
+
+            <!-- תנאים טכניים והצלבה -->
+            <div class="text-[11px] bg-slate-900/90 p-2.5 rounded-lg border border-slate-700 text-slate-300 mt-2">
+              <strong>תנאי מערכת:</strong> ${asset.conditionsMet}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+  } catch (e) {
+    console.log('ממתין להרצה הראשונה של GitHub Actions...');
+  }
+}
+loadData();
+setInterval(loadData, 60000);
+
+// Share button
+document.getElementById('shareButton').addEventListener('click', () => {
+  navigator.clipboard.writeText(window.location.href);
+  const mb = document.getElementById('messageBox');
+  mb.classList.remove('opacity-0'); mb.classList.add('opacity-100');
+  setTimeout(() => { mb.classList.remove('opacity-100'); mb.classList.add('opacity-0'); }, 3000);
+});
+</script>
+</body>
+</html>
