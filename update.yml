@@ -1,0 +1,24 @@
+name: update-data
+on:
+  schedule: [{ cron: '*/30 * * * *' }]   # כל 30 דקות (GitHub עשוי לאחר)
+  workflow_dispatch:
+permissions: { contents: write }
+concurrency: { group: update-data, cancel-in-progress: false }
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node fetch.mjs
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ secrets.GEMINI_MODEL }}
+          WHALE_ALERT_KEY: ${{ secrets.WHALE_ALERT_KEY }}
+          CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
+      - run: |
+          git config user.name bot && git config user.email bot@users.noreply.github.com
+          git add data.json
+          git diff --cached --quiet || (git commit -m "update data" && git pull --rebase -q && git push)
