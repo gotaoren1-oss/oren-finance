@@ -1,0 +1,377 @@
+[
+ {
+  "id": "berkshire",
+  "name": "Berkshire Hathaway",
+  "he": "וורן באפט",
+  "cat": "ind",
+  "cik": 1067983,
+  "match": "berkshire",
+  "domain": "berkshirehathaway.com"
+ },
+ {
+  "id": "pershing",
+  "name": "Pershing Square Capital Management",
+  "he": "ביל אקמן",
+  "cat": "ind",
+  "cik": 1336528,
+  "match": "pershing",
+  "domain": "pershingsquareholdings.com"
+ },
+ {
+  "id": "duquesne",
+  "name": "Duquesne Family Office",
+  "he": "סטנלי דרוקנמילר",
+  "cat": "ind",
+  "cik": 1536411,
+  "match": "duquesne"
+ },
+ {
+  "id": "appaloosa",
+  "name": "Appaloosa",
+  "he": "דיוויד טפר",
+  "cat": "ind",
+  "cik": 1656456,
+  "match": "appaloosa"
+ },
+ {
+  "id": "thirdpoint",
+  "name": "Third Point",
+  "he": "דניאל לוב",
+  "cat": "ind",
+  "cik": 1040273,
+  "match": "third point",
+  "domain": "thirdpoint.com"
+ },
+ {
+  "id": "lonepine",
+  "name": "Lone Pine Capital",
+  "he": "סטיבן מנדל",
+  "cat": "ind",
+  "cik": 1061165,
+  "match": "lone pine",
+  "domain": "lonepinecapital.com"
+ },
+ {
+  "id": "tiger",
+  "name": "Tiger Global Management",
+  "he": "צ'ייס קולמן",
+  "cat": "ind",
+  "cik": 1167483,
+  "match": "tiger global",
+  "domain": "tigerglobal.com"
+ },
+ {
+  "id": "baupost",
+  "name": "Baupost Group",
+  "he": "סת' קלארמן",
+  "cat": "ind",
+  "cik": 1061768,
+  "match": "baupost"
+ },
+ {
+  "id": "fundsmith",
+  "name": "Fundsmith LLP",
+  "he": "טרי סמית'",
+  "cat": "ind",
+  "cik": 1569205,
+  "match": "fundsmith",
+  "domain": "fundsmith.co.uk"
+ },
+ {
+  "id": "ark",
+  "name": "ARK Investment Management",
+  "he": "קאתי ווד",
+  "cat": "ind",
+  "cik": 1697748,
+  "match": "ark invest",
+  "domain": "ark-invest.com"
+ },
+ {
+  "id": "blackrock",
+  "name": "BlackRock",
+  "he": "בלאקרוק",
+  "cat": "fund",
+  "cik": 1364742,
+  "match": "blackrock",
+  "domain": "blackrock.com"
+ },
+ {
+  "id": "vanguard",
+  "name": "Vanguard Group",
+  "he": "ונגארד",
+  "cat": "fund",
+  "cik": 102909,
+  "match": "vanguard",
+  "domain": "vanguard.com"
+ },
+ {
+  "id": "statestreet",
+  "name": "State Street",
+  "he": "סטייט סטריט",
+  "cat": "fund",
+  "cik": 93751,
+  "match": "state street",
+  "domain": "ssga.com"
+ },
+ {
+  "id": "fidelity",
+  "name": "FMR LLC (Fidelity)",
+  "he": "פידליטי",
+  "cat": "fund",
+  "cik": 315066,
+  "match": "fmr",
+  "domain": "fidelity.com"
+ },
+ {
+  "id": "norges",
+  "name": "Norges Bank",
+  "he": "הקרן הנורבגית (נורגס)",
+  "cat": "fund",
+  "cik": 1374170,
+  "match": "norges",
+  "domain": "nbim.no"
+ },
+ {
+  "id": "citadel",
+  "name": "Citadel Advisors",
+  "he": "סיטדל",
+  "cat": "fund",
+  "cik": 1423053,
+  "match": "citadel",
+  "domain": "citadel.com"
+ },
+ {
+  "id": "millennium",
+  "name": "Millennium Management",
+  "he": "מילניום",
+  "cat": "fund",
+  "cik": 1273087,
+  "match": "millennium",
+  "domain": "mlp.com"
+ },
+ {
+  "id": "deshaw",
+  "name": "D. E. Shaw & Co",
+  "he": "די.אי. שואו",
+  "cat": "fund",
+  "cik": 1009207,
+  "match": "shaw",
+  "domain": "deshaw.com"
+ },
+ {
+  "id": "bridgewater",
+  "name": "Bridgewater Associates",
+  "he": "ברידג'ווטר",
+  "cat": "fund",
+  "cik": 1350694,
+  "match": "bridgewater",
+  "domain": "bridgewater.com"
+ },
+ {
+  "id": "rentec",
+  "name": "Renaissance Technologies",
+  "he": "רנסנס טכנולוג'יס",
+  "cat": "fund",
+  "cik": 1037389,
+  "match": "renaissance",
+  "domain": "rentec.com"
+ },
+ {
+  "id": "alphabet",
+  "name": "Alphabet",
+  "he": "אלפבית (גוגל)",
+  "cat": "co",
+  "cik": 1652044,
+  "match": "alphabet",
+  "domain": "abc.xyz"
+ },
+ {
+  "id": "nvidia",
+  "name": "Nvidia",
+  "he": "אנבידיה",
+  "cat": "co",
+  "cik": 1045810,
+  "match": "nvidia",
+  "domain": "nvidia.com"
+ },
+ {
+  "id": "amazon",
+  "name": "Amazon",
+  "he": "אמזון",
+  "cat": "co",
+  "cik": 1018724,
+  "match": "amazon",
+  "domain": "amazon.com"
+ },
+ {
+  "id": "microsoft",
+  "name": "Microsoft",
+  "he": "מיקרוסופט",
+  "cat": "co",
+  "cik": 789019,
+  "match": "microsoft",
+  "domain": "microsoft.com"
+ },
+ {
+  "id": "meta",
+  "name": "Meta Platforms",
+  "he": "מטא",
+  "cat": "co",
+  "cik": 1326801,
+  "match": "meta platforms",
+  "domain": "meta.com"
+ },
+ {
+  "id": "apple",
+  "name": "Apple",
+  "he": "אפל",
+  "cat": "co",
+  "cik": 320193,
+  "match": "apple",
+  "domain": "apple.com"
+ },
+ {
+  "id": "tesla",
+  "name": "Tesla",
+  "he": "טסלה",
+  "cat": "co",
+  "cik": 1318605,
+  "match": "tesla",
+  "domain": "tesla.com"
+ },
+ {
+  "id": "intel",
+  "name": "Intel",
+  "he": "אינטל",
+  "cat": "co",
+  "cik": 50863,
+  "match": "intel",
+  "domain": "intel.com"
+ },
+ {
+  "id": "jpm",
+  "name": "JPMorgan Chase",
+  "he": "ג'יי פי מורגן",
+  "cat": "bank",
+  "cik": 19617,
+  "match": "jpmorgan",
+  "domain": "jpmorganchase.com"
+ },
+ {
+  "id": "bofa",
+  "name": "Bank of America",
+  "he": "בנק אוף אמריקה",
+  "cat": "bank",
+  "cik": 70858,
+  "match": "bank of america",
+  "domain": "bankofamerica.com"
+ },
+ {
+  "id": "goldman",
+  "name": "Goldman Sachs",
+  "he": "גולדמן זאקס",
+  "cat": "bank",
+  "cik": 886982,
+  "match": "goldman",
+  "domain": "goldmansachs.com"
+ },
+ {
+  "id": "morganstanley",
+  "name": "Morgan Stanley",
+  "he": "מורגן סטנלי",
+  "cat": "bank",
+  "cik": 895421,
+  "match": "morgan stanley",
+  "domain": "morganstanley.com"
+ },
+ {
+  "id": "wells",
+  "name": "Wells Fargo",
+  "he": "וולס פארגו",
+  "cat": "bank",
+  "cik": 72971,
+  "match": "wells fargo",
+  "domain": "wellsfargo.com"
+ },
+ {
+  "id": "citi",
+  "name": "Citigroup",
+  "he": "סיטיגרופ",
+  "cat": "bank",
+  "cik": 831001,
+  "match": "citigroup",
+  "domain": "citigroup.com"
+ },
+ {
+  "id": "ubs",
+  "name": "UBS Group",
+  "he": "UBS",
+  "cat": "bank",
+  "q": "UBS Group",
+  "match": "ubs",
+  "domain": "ubs.com"
+ },
+ {
+  "id": "harvard",
+  "name": "Harvard Management Company",
+  "he": "הרווארד",
+  "cat": "edu",
+  "cik": 1082621,
+  "match": "harvard",
+  "domain": "harvard.edu"
+ },
+ {
+  "id": "yale",
+  "name": "Yale University",
+  "he": "ייל",
+  "cat": "edu",
+  "q": "Yale University",
+  "match": "yale",
+  "domain": "yale.edu"
+ },
+ {
+  "id": "stanford",
+  "name": "Stanford University",
+  "he": "סטנפורד",
+  "cat": "edu",
+  "q": "Leland Stanford Junior University",
+  "match": "stanford",
+  "domain": "stanford.edu"
+ },
+ {
+  "id": "mit",
+  "name": "Massachusetts Institute of Technology",
+  "he": "MIT",
+  "cat": "edu",
+  "q": "Massachusetts Institute of Technology",
+  "match": "massachusetts institute",
+  "domain": "mit.edu"
+ },
+ {
+  "id": "princeton",
+  "name": "Princeton University",
+  "he": "פרינסטון",
+  "cat": "edu",
+  "q": "Trustees of Princeton University",
+  "match": "princeton",
+  "domain": "princeton.edu"
+ },
+ {
+  "id": "ucal",
+  "name": "Regents of the University of California",
+  "he": "אוניברסיטת קליפורניה",
+  "cat": "edu",
+  "q": "Regents of the University of California",
+  "match": "california",
+  "domain": "universityofcalifornia.edu"
+ },
+ {
+  "id": "upenn",
+  "name": "University of Pennsylvania",
+  "he": "פנסילבניה",
+  "cat": "edu",
+  "q": "Trustees of the University of Pennsylvania",
+  "match": "pennsylvania",
+  "domain": "upenn.edu"
+ }
+]

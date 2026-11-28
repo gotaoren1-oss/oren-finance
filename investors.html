@@ -1,0 +1,98 @@
+<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FALILO · משקיעים וקרנות</title>
+<style>
+:root{--g:#135029;--g2:#1d7a40;--gold:#d8b45a;--ink:#eaf5ee;--mut:#8fb09c;--up:#38d27f;--dn:#ff7a6e;--card:#0e2819;--line:#1e4630}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(1100px 520px at 50% -10%,#1b6b3a55,transparent 60%),#07170e;color:var(--ink);font-family:'Segoe UI',Heebo,Arial,sans-serif;min-height:100vh}
+.w{max-width:1000px;margin:0 auto;padding:20px 16px 50px}
+.demo{background:#d8b45a22;border:1px dashed var(--gold);color:var(--gold);border-radius:12px;padding:8px 14px;font-size:12.5px;text-align:center;margin-bottom:16px}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:4px}.logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#1d7a40,#0a2f18);display:grid;place-items:center;font-weight:900;font-size:24px;border:1px solid #2f8a53}
+h1{font-size:22px;margin:0}.sub{color:var(--mut);font-size:13px}
+.tabs{display:flex;gap:8px;overflow:auto;margin:16px 0 14px;padding-bottom:4px}
+.tab{flex:none;border:1px solid var(--line);background:#0c2216;color:var(--mut);padding:9px 16px;border-radius:99px;font-size:14px;font-weight:700;cursor:pointer}
+.tab b{color:var(--gold);margin-right:6px}.tab.on{background:linear-gradient(135deg,var(--g2),var(--g));color:#fff;border-color:#3b9a60;box-shadow:0 6px 20px #1d7a4055}
+/* list */
+.list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.it{display:flex;align-items:center;gap:14px;background:linear-gradient(160deg,#112f1e,#0b2115);border:1px solid var(--line);border-radius:18px;padding:13px 15px;cursor:pointer;transition:.2s;position:relative}
+.it:hover{transform:translateY(-3px);border-color:#3b9a60;box-shadow:0 12px 28px #0007}
+.mono{flex:none;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;box-shadow:inset 0 -5px 10px #0004,0 4px 12px #0006}
+.it .mono{width:52px;height:52px;font-size:21px}.it h3{margin:0;font-size:16px}.it .t{font-size:12px;color:var(--mut);margin-top:2px}
+.it .r{margin-right:auto;text-align:left;direction:ltr}.it .r b{display:block;color:var(--gold);font-size:16px}.it .r span{font-size:11.5px;font-weight:800}
+.u{color:var(--up)}.d{color:var(--dn)}.nw{margin-right:6px;font-size:10.5px;font-weight:800;color:var(--up);background:#38d27f1f;border-radius:99px;padding:1px 8px}
+/* detail */
+.home{display:inline-block;color:var(--mut);font-size:13px;text-decoration:none;margin-bottom:10px}.lg{position:relative;flex:none;border-radius:50%;overflow:hidden;display:grid;place-items:center;font-weight:900;color:#fff}.lg img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;padding:18%}.lg.sq img{padding:12%}.mk{display:inline-flex;gap:4px;margin-inline-start:6px;vertical-align:middle}.m{font-size:10.5px;font-weight:800;border-radius:99px;padding:1px 7px;white-space:nowrap}.m.ok{background:#38d27f26;color:var(--up)}.m.bad{background:#ff7a6e26;color:var(--dn)}.m.wt{background:#d8b45a26;color:var(--gold)}.m.gd{background:#d8b45a33;color:var(--gold)}.age{font-size:10.5px;font-weight:800;border-radius:99px;padding:1px 8px;margin-inline-start:6px}.age.f{color:var(--up);background:#38d27f1f}.age.o{color:#c9a15a;background:#c9a15a1f}.vf{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0 18px}.vf .c{flex:1;min-width:160px;border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13px;color:var(--mut)}.vf .c b{display:block;font-size:20px;color:var(--ink)}.vf .c.g b{color:var(--up)}.vf .c.r b{color:var(--gold)}.src{font-size:12px;color:var(--mut);margin-top:14px}.src a{color:var(--up)}.chs{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))!important}.ch .mk{flex-wrap:wrap;justify-content:center;margin:0}.ch .m{font-size:10px}.empty{padding:40px 10px;text-align:center;color:var(--mut)}display:inline-flex;gap:6px;align-items:center;background:#ffffff0d;border:1px solid var(--line);color:var(--ink);padding:7px 14px;border-radius:99px;font-size:13px;cursor:pointer;margin-bottom:12px}
+.dv{background:linear-gradient(180deg,#0e2819,#09190f);border:1px solid var(--line);border-radius:26px;padding:22px;animation:up .4s ease}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hd h2{margin:0;font-size:24px}.hd h2 span{color:var(--mut);font-weight:500;font-size:16px}
+.tot{font-size:16px;margin-top:6px;color:var(--mut)}.tot b{color:var(--up);font-size:19px;direction:ltr;display:inline-block}
+.dts{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.dt{font-size:12px;border:1px solid var(--line);border-radius:99px;padding:3px 11px;color:var(--mut)}.dt b{color:var(--ink)}.dt.n{color:var(--up);border-color:var(--up)}
+.mid{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center;margin:20px 0}
+.donut{position:relative;width:100%;max-width:330px;margin:0 auto}.donut svg{width:100%;display:block}
+.ctr{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}.ctr .mono{width:36%;aspect-ratio:1;font-size:40px;border:5px solid #38d27f;background:linear-gradient(135deg,var(--c1),var(--c2))}
+h4{margin:0 0 10px;font-size:19px;color:var(--up);letter-spacing:.3px}
+.h5{display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:14px}.h5:nth-child(odd){background:#ffffff08}
+.h5 .mono{width:40px;height:40px;font-size:12px;background:#fff;color:#123}.h5 .nm{flex:1;font-size:14.5px;line-height:1.25}.h5 .nm small{display:block;color:var(--mut);font-size:11.5px;direction:ltr;text-align:right}
+.h5 .pc{font-weight:800;color:var(--up);font-size:16px;direction:ltr}.h5 .rk{color:var(--mut);font-size:12px;width:12px}
+.cross{background:linear-gradient(90deg,#d8b45a1c,transparent);border:1px solid #d8b45a55;border-radius:14px;padding:10px 14px;font-size:13.5px;margin:4px 0 20px}.cross b{color:var(--gold)}
+.chs{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.ch{border:1px solid #2f7a4d;border-radius:18px;padding:16px 8px 12px;text-align:center;background:#0b2115}
+.ch .mono{width:54px;height:54px;margin:0 auto;background:#fff;color:#123;font-size:15px}.ch .n{font-size:14px;font-weight:700;margin-top:10px;min-height:38px;line-height:1.25}.ch .tk{font-size:11.5px;color:var(--mut);direction:ltr}
+.pill{display:inline-block;margin-top:12px;font-weight:800;font-size:13px;border-radius:99px;padding:4px 12px}
+.pill.new{background:#38d27f;color:#04210f}.pill.exit{background:#ff7a6e;color:#2b0805}.pill.up{background:#38d27f26;color:var(--up);border:1px solid #38d27f66}.pill.dn{background:#ff7a6e26;color:var(--dn);border:1px solid #ff7a6e66}
+.ch .ds{font-size:11.5px;color:var(--mut);margin-top:8px;line-height:1.4}
+.foot{color:var(--mut);font-size:12px;margin-top:16px;line-height:1.7}
+@media(max-width:720px){.list{grid-template-columns:1fr}.mid{grid-template-columns:1fr}.chs{grid-template-columns:repeat(2,1fr)}.dv{padding:16px}}
+</style></head><body><div class="w">
+<div class="demo" id="demo" style="display:none"></div>
+<a class="home" href="./">← חזרה לדף הראשי</a>
+<div class="top"><div class="logo">F</div><div><h1>משקיעים וקרנות</h1><div class="sub">בוחרים מהרשימה ומקבלים את התיק, לפי דיווחי 13F ל-SEC עם תאריך הגשה לכל אחד</div></div></div>
+<div id="app"></div>
+<div class="foot">דיווחי 13F מתפרסמים עד 45 יום אחרי סוף רבעון, ולכן הם תמונת מצב ישנה בכמה שבועות. הם כוללים רק מניות אמריקאיות, בלי שורט, קריפטו או מחיר קנייה. מידע להקשר ולא איתות קנייה.</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const COL={ind:['#c9962b','#7a5614'],fund:['#1d7a40','#0a3b1f'],co:['#2c6fb5','#123a66'],bank:['#7b5ec9','#3a2a73'],edu:['#b5473a','#6b1f17']};
+const CATS=[['ind','משקיעים פרטיים ומשפחות'],['fund','קרנות וענקיות השקעה'],['co','חברות עם תיק השקעות'],['bank','בנקים גדולים'],['edu','מוסדות לימוד']];
+const PAL=['#6ee7b7','#34d399','#2fa97c','#1f7a5a','#a7f3d0','#3b5f4c'];
+let INV=null,SITE=null,cat='ind',cur=null;
+const fmtD=d=>d?d.split('-').reverse().join('.'):'';
+const days=d=>Math.floor((Date.now()-new Date(d))/864e5);
+const usd=v=>v>=1e12?'$'+(v/1e12).toFixed(2)+'T':v>=1e9?'$'+(v/1e9).toFixed(1)+'B':v>=1e6?'$'+Math.round(v/1e6)+'M':'$'+Math.round(v/1e3)+'K';
+const num=n=>n>=1e6?(n/1e6).toFixed(1)+'M':n>=1e3?Math.round(n/1e3)+'K':String(n);
+const ini=s=>(String(s).match(/[A-Za-z֐-׿]/)||['?'])[0].toUpperCase();
+// לוגו: תמונה מעל מונוגרם. אם התמונה לא נטענת היא נמחקת ונשאר המונוגרם
+function logo(url,text,size,bg,sq){return `<div class="lg ${sq?'sq':''}" style="width:${size}px;height:${size}px;font-size:${size*.36}px;background:${bg||'#1d7a40'}">${esc(text)}${url?`<img src="${esc(url)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:''}</div>`}
+const ownerLogo=(e,size)=>{const[c1,c2]=COL[e.cat];return logo(e.domain?`https://www.google.com/s2/favicons?domain=${e.domain}&sz=128`:null,ini(e.he||e.name),size,`linear-gradient(135deg,${c1},${c2})`,true)};
+const stockLogo=(t,n,size)=>logo(t?`https://financialmodelingprep.com/image-stock/${encodeURIComponent(t)}.png`:null,t?t.slice(0,4):ini(n),size,'#2a4a38');
+// סימונים מהאתר הראשי
+function ours(t){if(!t||!SITE)return null;const v=SITE.analysis?.brief?.verdict;if(!v)return null;const r={};
+ if((v.buy||[]).some(x=>x.ticker===t))r.s='ok';else if((v.beware||[]).some(x=>x.ticker===t))r.s='bad';else if((v.wait||[]).some(x=>x.ticker===t))r.s='wt';
+ const x=(v.crossEvents||[]).find(e=>e.key===t&&(e.kind==='golden'||e.kind==='death'));if(x)r.x=x.kind;return r.s||r.x?r:null}
+function marks(t){const o=ours(t);if(!o)return'';return `<span class="mk">${o.s==='ok'?'<span class="m ok">✔ אצלנו חיובי</span>':o.s==='bad'?'<span class="m bad">⚠ אצלנו זהירות</span>':o.s==='wt'?'<span class="m wt">⏳ אצלנו ממתינים</span>':''}${o.x==='golden'?'<span class="m gd">✦ חציית זהב</span>':o.x==='death'?'<span class="m bad">חציית מוות</span>':''}</span>`}
+const ageB=e=>{const d=days(e.filed);return d<=7?'<span class="age f">● חדש</span>':d>75?'<span class="age o">ישן</span>':''};
+function home(){cur=null;if(!INV){$('app').innerHTML='<div class="empty">אין עדיין נתוני משקיעים. הם יופיעו אחרי ההרצה הראשונה של investors ב-Actions.</div>';return}
+ if(!INV.list.some(e=>e.cat===cat)){const f=CATS.find(([c])=>INV.list.some(e=>e.cat===c));if(f)cat=f[0]}
+ const L=INV.list.filter(e=>e.cat===cat);
+ $('app').innerHTML=`<div class="tabs">${CATS.filter(([c])=>INV.list.some(e=>e.cat===c)).map(([c,n])=>`<div class="tab ${c===cat?'on':''}" onclick="setCat('${c}')">${n}<b>${INV.list.filter(e=>e.cat===c).length}</b></div>`).join('')}</div>`+(L.length?`<div class="list">${L.map(e=>`<div class="it" onclick="openI('${e.id}')">${ownerLogo(e,52)}<div><h3>${esc(e.he||e.name)}</h3><div class="t">${e.cat==='ind'?esc(e.name)+' · ':''}הוגש ${fmtD(e.filed)}${ageB(e)}</div></div><div class="r"><b>${usd(e.total)}</b>${e.dTotal!=null?`<span class="${e.dTotal>=0?'u':'d'}">${e.dTotal>=0?'▲ +':'▼ '}${e.dTotal}%</span>`:''}</div></div>`).join('')}</div>`:'<div class="empty">אין כאן משקיעים שאומתו מול ה-SEC.</div>')}
+function setCat(c){cat=c;home()}
+function arc(cx,cy,r,a0,a1){const p=a=>[cx+r*Math.cos(a),cy+r*Math.sin(a)],[x0,y0]=p(a0),[x1,y1]=p(a1);return `M${x0} ${y0}A${r} ${r} 0 ${a1-a0>Math.PI?1:0} 1 ${x1} ${y1}`}
+function donut(top){const five=top.slice(0,5),rest=Math.max(0,100-five.reduce((a,h)=>a+h.p,0)),seg=[...five.map(h=>({l:h.t||h.n.slice(0,4),p:h.p})),...(rest>0.5?[{l:'אחרות',p:rest}]:[])],tot=seg.reduce((a,x)=>a+x.p,0);let a=-Math.PI/2,s='',b='';
+ seg.forEach((x,i)=>{const sw=x.p/tot*Math.PI*2,g=sw>.05?.02:0;s+=`<path d="${arc(150,150,105,a+g,a+sw-g)}" fill="none" stroke="${PAL[i]}" stroke-width="62"/>`;const m=a+sw/2;if(x.p>4)b+=`<circle cx="${150+105*Math.cos(m)}" cy="${150+105*Math.sin(m)}" r="21" fill="#fff"/><text x="${150+105*Math.cos(m)}" y="${150+105*Math.sin(m)+4}" text-anchor="middle" font-size="9.5" font-weight="800" fill="#10331f">${esc(x.l.slice(0,5))}</text>`;a+=sw});return `<svg viewBox="0 0 300 300">${s}${b}</svg>`}
+const CT={new:['new','פוזיציה חדשה'],exit:['exit','יציאה מלאה'],up:['up',p=>'▲ '+p+'%'],down:['dn',p=>'▼ '+Math.abs(p)+'%']};
+const DS={new:c=>`כ-${num(c.dsh)} מניות, בשווי ${usd(c.dval)}`,exit:c=>`יציאה מהחזקה של כ-${num(Math.abs(c.dsh))} מניות`,up:c=>`תוספת של כ-${num(c.dsh)} מניות`,down:c=>`צמצום של כ-${num(Math.abs(c.dsh))} מניות`};
+function openI(id){const e=INV.list.find(x=>x.id===id);cur=e;
+ // אימות הדדי: כיוון המשקיע מול הציון שלנו
+ let agree=0,gap=0;for(const c of e.changes){const o=ours(c.t);if(!o||!o.s)continue;const inc=c.type==='new'||c.type==='up';if(o.s==='wt')continue;if((inc&&o.s==='ok')||(!inc&&o.s==='bad'))agree++;else gap++}
+ const heldOk=e.top.filter(h=>ours(h.t)?.s==='ok').length,heldBad=e.top.filter(h=>ours(h.t)?.s==='bad').length;
+ $('app').innerHTML=`<div class="back" onclick="home()">→ חזרה לרשימה</div><div class="dv">
+ <div class="hd" style="display:flex;gap:16px;align-items:center">${ownerLogo(e,72)}<div><h2>${esc(e.he||e.name)} <span>${e.cat==='ind'?'· '+esc(e.name)+' ':''}· דוח 13F · רבעון ${fmtD(e.qe)}</span></h2><div class="tot">שווי האחזקות המדווחות ב-13F: <b>${usd(e.total)}</b>${e.dTotal!=null?` <span class="${e.dTotal>=0?'u':'d'}" style="font-size:13px">(${e.dTotal>=0?'+':''}${e.dTotal}% מהרבעון הקודם)</span>`:''}</div></div></div>
+ <div class="dts"><span class="dt">סוף רבעון: <b>${fmtD(e.qe)}</b></span><span class="dt">הוגש: <b>${fmtD(e.filed)}</b> (${days(e.filed)<1?'היום':'לפני '+days(e.filed)+' ימים'})</span>${e.prevQe?`<span class="dt">מושווה ל: <b>${fmtD(e.prevQe)}</b></span>`:''}<span class="dt">${e.n} אחזקות</span>${days(e.filed)<=7?'<span class="dt n">● דיווח חדש</span>':''}</div>
+ ${SITE?.analysis?.brief?`<div class="vf" style="margin-top:16px"><div class="c g"><span>מהאחזקות הגדולות, אצלנו חיוביות</span><b>${heldOk}</b></div><div class="c r"><span>מהאחזקות הגדולות, אצלנו בזהירות</span><b>${heldBad}</b></div><div class="c g"><span>שינויים שמאשרים את המערכת</span><b>${agree}</b></div><div class="c r"><span>פערים בין המשקיע למערכת</span><b>${gap}</b></div></div>`:''}
+ <div class="mid"><div><h4>${Math.min(10,e.top.length)} האחזקות הגדולות</h4>${e.top.map((h,i)=>`<div class="h5" style="flex-wrap:wrap"><span class="rk">${i+1}</span>${stockLogo(h.t,h.n,40)}<div class="nm">${esc(h.n)}${marks(h.t)}<small>${esc(h.t||'')} · ${num(h.sh)} מניות · ${usd(h.v)}</small></div><div class="pc">${h.p.toFixed(2)}%</div></div>`).join('')}</div>
+ <div class="donut">${donut(e.top)}<div class="ctr">${ownerLogo(e,100).replace('class="lg sq"','class="lg sq" style="border:5px solid #38d27f;width:36%;aspect-ratio:1;height:auto;font-size:34px;"')}</div></div></div>
+ ${e.changes.length?`<h4>${e.changes.length} השינויים המרכזיים לעומת הרבעון הקודם</h4><div class="chs">${e.changes.map(c=>{const[k,l]=CT[c.type];return `<div class="ch">${stockLogo(c.t,c.n,54).replace('class="lg','class="lg" style="margin:0 auto"').replace('class="lg" style="margin:0 auto" style=','class="lg" style="margin:0 auto;')}<div class="n">${esc(c.n)}</div><div class="tk">${esc(c.t||'')}</div>${marks(c.t)?`<div style="margin-top:6px">${marks(c.t)}</div>`:''}<span class="pill ${k}">${typeof l==='function'?l(c.pct):l}</span><div class="ds">${DS[c.type](c)}</div></div>`}).join('')}</div>`:'<div class="empty">אין שינויים מהותיים או שאין רבעון קודם להשוואה.</div>'}
+ <div class="src">מקור: דוח 13F-HR שהוגש ל-SEC ב-${fmtD(e.filed)} · <a href="${esc(e.url)}" target="_blank" rel="noopener">לדוחות ב-EDGAR ↗</a></div></div>`;scrollTo(0,0)}
+async function load(){const J=async u=>{try{const r=await fetch(u+'?t='+Date.now());return r.ok?await r.json():null}catch{return null}};
+ [INV,SITE]=await Promise.all([J('investors.json'),J('data.json')]);
+ home();const q=new URLSearchParams(location.search).get('i');if(q&&INV?.list.some(x=>x.id===q))openI(q)}
+load();
+</script></body></html>
